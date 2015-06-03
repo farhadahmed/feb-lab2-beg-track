@@ -75,20 +75,31 @@ console.log('Answer: ' + hoursSpentInDowington);
 
 Blob.prototype.hoursToOoze = function(population, peoplePerHour) {
   // TODO: implement me based on the instructions above. Be sure to then assign me to the Blob's prototype.
-  this.population = population;
-  this.peoplePerHour = peoplePerHour;
-  var hours;
-  for (hours = 0; population >= 0; hours++, peoplePerHour++) {
-    population -= peoplePerHour;
+  if ((typeof(population) === 'number') && (typeof(peoplePerHour) === 'number')) {
+    this.population = population;
+    this.peoplePerHour = peoplePerHour;
+    var hours;
+    for (hours = 0; population > 0; hours++, peoplePerHour++) {
+      population -= peoplePerHour;
+    }
+    return hours;
+  } else {
+    return('Both arguments must be numbers.')
   }
-  return hours;
-}
+}//end of hoursToOoze function
 
 assert(blob.hoursToOoze(0, 1) === 0, "no people means no time needed.");
 assert(blob.hoursToOoze(1000, 1) === hoursSpentInDowington,
   "hoursSpentInDowington should match hoursToOoze\"s result for 1000");
 // TODO: write three more assertions like the two above, testing out
 // the hoursToOoze method.
+assert(blob.hoursToOoze(true, true) === 'Both arguments must be numbers.',
+  'Exception handler not working with booleans');
+assert(blob.hoursToOoze('string', 'string') === 'Both arguments must be numbers.',
+  'Exception handler not working with strings');
+assert(blob.hoursToOoze('string', 10) === 'Both arguments must be numbers.',
+  'Exception handler is not checking if both arguments are numbers.')
+
 
 //*********************************************************
 // PROBLEM 2: Universal Translator. 20 points
