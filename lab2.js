@@ -40,23 +40,48 @@ function assert(expression, failureMessage) {
         2          |       3/hour
         3          |       4/hour
 
- TODO: First, make a constructor function, called Blob, that makes blobs.
+TODO: First, make a constructor function, called Blob, that makes blobs.*/
 
- TODO: Next, create an instance of Blob named blob.
+function Blob(name) {
+   this.name = name;
+}
 
- TODO: Then, use a loop to calculate how long it took the blob to finish
- with Dowington.
-*/
+//Originally had this inside constructor but it makes more sense to leave this
+//outside because of instructions further in this problem.
+var personsRemaining = 1000;  //After conversing with the TA, this makes more sense than personsConsumed
+var rateOfConsumption = 1;
+var hoursSpentInDowington;
 
-var hoursSpentInDowington; // TODO: assign me the value of the
-                           // above calculation
+/*TODO: Next, create an instance of Blob named blob.*/
+var blob = new Blob('blob');
+
+/*TODO: Then, use a loop to calculate how long it took the blob to finish
+  with Dowington.  */
+for (hoursSpentInDowington = 0, rateOfConsumption = 1; personsRemaining >= 0;
+  hoursSpentInDowington++, rateOfConsumption++) {
+
+  console.log('Hours: ' + hoursSpentInDowington + '\tPersons Remaining: ' +
+  personsRemaining + '\tConsumption Rate: ' + rateOfConsumption);
+  personsRemaining -= rateOfConsumption;
+
+}
+
+// TODO: assign hoursSpentInDowington the value of the above calculation
+console.log('Answer: ' + hoursSpentInDowington);
 
 // Now, write a method that takes a population for an arbitrary
 // town, and the starting consumption rate, and returns the number
 // of hours the blob needs to ooze its way through that town.
 
-function hoursToOoze(population, peoplePerHour) {
+Blob.prototype.hoursToOoze = function(population, peoplePerHour) {
   // TODO: implement me based on the instructions above. Be sure to then assign me to the Blob's prototype.
+  this.population = population;
+  this.peoplePerHour = peoplePerHour;
+  var hours;
+  for (hours = 0; population >= 0; hours++, peoplePerHour++) {
+    population -= peoplePerHour;
+  }
+  return hours;
 }
 
 assert(blob.hoursToOoze(0, 1) === 0, "no people means no time needed.");
@@ -79,8 +104,10 @@ var hello = {
 // sentient beings. They have a home planet, a language that they
 // speak, and method called sayHello.
 
-function SentientBeing () {
+function SentientBeing (homePlanet, language) {
   // TODO: specify a home planet and a language
+  this.homePlanet = homePlanet;
+  this.language = language;
   // you'll need to add parameters to this constructor
 }
 
