@@ -84,9 +84,9 @@ Blob.prototype.hoursToOoze = function(population, peoplePerHour) {
     }
     return hours;
   } else {
-    return('Both arguments must be numbers.')
+    return('Both arguments must be numbers.');
   }
-}//end of hoursToOoze function
+};//end of hoursToOoze function
 
 assert(blob.hoursToOoze(0, 1) === 0, "no people means no time needed.");
 assert(blob.hoursToOoze(1000, 1) === hoursSpentInDowington,
@@ -98,7 +98,7 @@ assert(blob.hoursToOoze(true, true) === 'Both arguments must be numbers.',
 assert(blob.hoursToOoze('string', 'string') === 'Both arguments must be numbers.',
   'Exception handler not working with strings');
 assert(blob.hoursToOoze('string', 10) === 'Both arguments must be numbers.',
-  'Exception handler is not checking if both arguments are numbers.')
+  'Exception handler is not checking if both arguments are numbers.');
 
 
 //*********************************************************
@@ -117,32 +117,41 @@ var hello = {
 
 function SentientBeing (homePlanet, language) {
   // TODO: specify a home planet and a language
+  // you'll need to add parameters to this constructor
   this.homePlanet = homePlanet;
   this.language = language;
-  // you'll need to add parameters to this constructor
+  this.hello = hello[language];
 }
 
 // sb is a SentientBeing object
-function sayHello (sb) {
-    // TODO: say hello prints out (console.log's) hello in the
-    // language of the speaker, but returns it in the language
-    // of the listener (the sb parameter above).
-    // use the 'hello' object at the beginning of this exercise
-    // to do the translating
+SentientBeing.prototype.sayHello = function(sb) {
+  // TODO: say hello prints out (console.log's) hello in the
+  // language of the speaker, but returns it in the language
+  // of the listener (the sb parameter above).
+  // use the 'hello' object at the beginning of this exercise
+  // to do the translating
+  console.log(this.hello);
+  return sb.hello;
+  //TODO: put this on the SentientBeing prototype
+}
 
-    //TODO: put this on the SentientBeing prototype
-  }
 
 // TODO: create three SentientBeings, one for each language in the
 // 'hello' object above.
-var klingon = new SentientBeing(); // TODO: fix me
-var romulan = new SentientBeing(); // TODO: fix me
-var human = new SentientBeing(); // TODO: fix me
+var klingon = new SentientBeing('Qo"Nos', 'klingon'); // TODO: fix me
+var romulan = new SentientBeing("Romulus", "romulan"); // TODO: fix me
+var human = new SentientBeing('Earth', 'federation standard'); // TODO: fix me
 
-assert((new Human()).sayHello(new Klingon()) === "nuqneH",
+
+assert(human.sayHello(klingon) === "nuqneH",
   "the klingon should hear nuqneH");
 // TODO: write five more assertions, to complete all the possible
 // greetings between the three types of sentient beings you created above.
+assert(romulan.sayHello(klingon) === "nuqneH");
+assert(romulan.sayHello(human) === "hello");
+assert(human.sayHello(romulan) === "Jolan\"tru");
+assert(romulan.sayHello(romulan) === "Jolan\"tru");
+assert(klingon.sayHello(human) === "hello")
 
 //*********************************************************
 // PROBLEM 3: Moar Loops. 20 points.
