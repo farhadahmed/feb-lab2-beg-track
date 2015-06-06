@@ -172,9 +172,9 @@ function max(array) {
 
 // TODO: write three more assertions
 assert(max([ 1, 3, 2 ]) === 3, "[1,3,2]");
-assert(max([2, 'hi', 4, 'hello', 10]) === 10, "[2, 'hi', 4, 'hello', 10]");
-assert(max([-1]) === 0, "[-1]");
-assert(max([10.05, 10.02, 10.98]) === 10.98, "[10.05, 10.02, 10.98]");
+assert(max([ 2, 'hi', 4, 'hello', 10 ]) === 10, "[2, 'hi', 4, 'hello', 10]");
+assert(max([ -1 ]) === 0, "[-1]");
+assert(max([ 10.05, 10.02, 10.98 ]) === 10.98, "[10.05, 10.02, 10.98]");
 
 
 function variablify(string) {
