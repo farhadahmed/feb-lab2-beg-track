@@ -133,7 +133,7 @@ SentientBeing.prototype.sayHello = function(sb) {
   console.log(this.hello);
   return sb.hello;
   //TODO: put this on the SentientBeing prototype
-}
+};
 
 
 // TODO: create three SentientBeings, one for each language in the
@@ -151,7 +151,7 @@ assert(romulan.sayHello(klingon) === "nuqneH");
 assert(romulan.sayHello(human) === "hello");
 assert(human.sayHello(romulan) === "Jolan\"tru");
 assert(romulan.sayHello(romulan) === "Jolan\"tru");
-assert(klingon.sayHello(human) === "hello")
+assert(klingon.sayHello(human) === "hello");
 
 //*********************************************************
 // PROBLEM 3: Moar Loops. 20 points.
@@ -206,7 +206,7 @@ assert(variablify("Four score and secen years ago when our forefathers") === "fo
 
 assert(variablify("One Two And Three") === "oneTwoAndThree", "variablify(\"One Two And Three\")");
 
-assert(variablify("BECAUSE IM BATMAN") === "becauseImBatman", "variablify(\"BECAUSE IM BATMAN\")")
+assert(variablify("BECAUSE IM BATMAN") === "becauseImBatman", "variablify(\"BECAUSE IM BATMAN\")");
 
 
 //*********************************************************
