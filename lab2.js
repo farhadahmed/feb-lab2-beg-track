@@ -50,21 +50,29 @@ function Blob(name) {
 //outside because of instructions further in this problem.
 var personsRemaining = 1000;  //After conversing with the TA, this makes more sense than personsConsumed
 var rateOfConsumption = 1;
-var hoursSpentInDowington;
+var hoursSpentInDowington = 0;
 
 /*TODO: Next, create an instance of Blob named blob.*/
 var blob = new Blob('blob');
 
 /*TODO: Then, use a loop to calculate how long it took the blob to finish
   with Dowington.  */
-for (hoursSpentInDowington = 0, rateOfConsumption = 1; personsRemaining >= 0;
-  hoursSpentInDowington++, rateOfConsumption++) {
 
+while (personsRemaining > 0) {
   console.log('Hours: ' + hoursSpentInDowington + '\tPersons Remaining: ' +
   personsRemaining + '\tConsumption Rate: ' + rateOfConsumption);
   personsRemaining -= rateOfConsumption;
-
+  hoursSpentInDowington++;
+  rateOfConsumption++;
 }
+//for (hoursSpentInDowington = 0, rateOfConsumption = 1; personsRemaining >= 0;
+//  hoursSpentInDowington++, rateOfConsumption++) {
+//
+//  console.log('Hours: ' + hoursSpentInDowington + '\tPersons Remaining: ' +
+//  personsRemaining + '\tConsumption Rate: ' + rateOfConsumption);
+//  personsRemaining -= rateOfConsumption;
+//
+//}
 
 // TODO: assign hoursSpentInDowington the value of the above calculation
 console.log('Answer: ' + hoursSpentInDowington);
@@ -185,6 +193,7 @@ function variablify(string) {
   // you might want to use these string methods:
   //  split(), charAt(), toUpperCase()
   // and this array method: join()
+
 }
 
 // TODO: write three more assertions
