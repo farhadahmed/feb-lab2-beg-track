@@ -65,14 +65,6 @@ while (personsRemaining > 0) {
   hoursSpentInDowington++;
   rateOfConsumption++;
 }
-//for (hoursSpentInDowington = 0, rateOfConsumption = 1; personsRemaining >= 0;
-//  hoursSpentInDowington++, rateOfConsumption++) {
-//
-//  console.log('Hours: ' + hoursSpentInDowington + '\tPersons Remaining: ' +
-//  personsRemaining + '\tConsumption Rate: ' + rateOfConsumption);
-//  personsRemaining -= rateOfConsumption;
-//
-//}
 
 // TODO: assign hoursSpentInDowington the value of the above calculation
 console.log('Answer: ' + hoursSpentInDowington);
@@ -193,7 +185,21 @@ function variablify(string) {
   // you might want to use these string methods:
   //  split(), charAt(), toUpperCase()
   // and this array method: join()
-
+  var arrayedString = string.split(' ');
+  var camelString = '';
+  for (var i = 0; i < arrayedString.length; i++) {
+    if (i === 0) {
+      var firstWord = arrayedString[i];
+      camelString += firstWord.toLowerCase();
+    } else {
+      var nextWord = arrayedString[i];
+      camelString += nextWord.charAt(0).toUpperCase();
+      for (var j = 1; j < nextWord.length; j++) {
+        camelString += nextWord.charAt(j).toLowerCase();
+      }
+    }
+  }
+  return camelString;
 }
 
 // TODO: write three more assertions
