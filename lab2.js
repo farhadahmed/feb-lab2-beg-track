@@ -201,6 +201,13 @@ function variablify(string) {
 assert(variablify("one two three") === "oneTwoThree",
   "variablify(\"one two three\")");
 
+assert(variablify("Four score and secen years ago when our forefathers") === "fourScoreAndSecenYearsAgoWhenOurForefathers",
+  "variablify(\"Four score and secen years ago when our forefathers\")");
+
+assert(variablify("One Two And Three") === "oneTwoAndThree", "variablify(\"One Two And Three\")");
+
+assert(variablify("BECAUSE IM BATMAN") === "becauseImBatman", "variablify(\"BECAUSE IM BATMAN\")")
+
 
 //*********************************************************
 // PROBLEM 4: Cleanup: 10 points
