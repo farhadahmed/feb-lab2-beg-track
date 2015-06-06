@@ -186,25 +186,21 @@ function variablify(string) {
   //  split(), charAt(), toUpperCase()
   // and this array method: join()
   var arrayedString = string.split(' ');
-  var camelString = '';
-  for (var i = 0; i < arrayedString.length; i++) {
-    if (i === 0) {
-      var firstWord = arrayedString[i];
-      camelString += firstWord.toLowerCase();
-    } else {
-      var nextWord = arrayedString[i];
-      camelString += nextWord.charAt(0).toUpperCase();
-      for (var j = 1; j < nextWord.length; j++) {
-        camelString += nextWord.charAt(j).toLowerCase();
-      }
+  var camelCasify = arrayedString[0].toLowerCase();
+  for (var i = 1; i < arrayedString.length; i++) {
+    var nextWord = arrayedString[i];
+    camelCasify += nextWord.charAt(0).toUpperCase();
+    for (var j = 1; j < nextWord.length; j++) {
+      camelCasify += nextWord.charAt(j).toLowerCase();
     }
   }
-  return camelString;
+  return camelCasify;
 }
 
 // TODO: write three more assertions
 assert(variablify("one two three") === "oneTwoThree",
   "variablify(\"one two three\")");
+
 
 //*********************************************************
 // PROBLEM 4: Cleanup: 10 points
